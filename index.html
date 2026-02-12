@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Valentine Quest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bgOrbs" aria-hidden="true">
+    <span class="orb orb1"></span>
+    <span class="orb orb2"></span>
+    <span class="orb orb3"></span>
+  </div>
+
+  <div class="progressWrap" aria-label="Quest progress">
+    <div class="progressBar" id="progressBar"></div>
+    <p class="progressText" id="progressText">Step 1 of 7</p>
+  </div>
+
+  <div class="fxLayer" id="fxLayer" aria-hidden="true"></div>
+  <button class="musicToggle" id="musicToggle" type="button" aria-pressed="false">Sound: Off</button>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="audio/zaleznist.mp3" type="audio/mpeg" />
+  </audio>
+
+  <section class="screen active" id="s1" data-step="1">
+    <h1>Will you be my Valentine? &#128152;</h1>
+    <div class="area" id="area1">
+      <button id="yes1" class="yes">Yes</button>
+      <button id="no1" class="no">Nope</button>
+    </div>
+    <p class="hint" id="hint1"></p>
+  </section>
+
+  <section class="screen" id="s2" data-step="2">
+    <h1>Okay, a tiny quiz about us &#128516;</h1>
+    <p>1) Що ми їли на нашому першому побаченні?</p>
+    <input id="q1" placeholder="Type here..." />
+    <p>2) Яка була наша перша поїздка (і яка стресова ситуація сталася)?</p>
+    <input id="q2" placeholder="Type here..." />
+    <p>3) Як я тобі казав про те, щоб ми стали парою? (саме фраза)</p>
+    <input id="q3" placeholder="Type here..." />
+    <p>4) І, що я кажу про це зараз (кричууу)?</p>
+    <input id="q4" placeholder="Type here..." />
+    <button id="to3">Next &#8594;</button>
+    <p class="hint" id="hint2"></p>
+  </section>
+
+  <section class="screen" id="s3" data-step="3">
+    <h1>Open 3 little hearts &#10084;&#65039;</h1>
+    <p class="miniCount">Opened: <span id="openedCount">0</span>/3</p>
+    <div class="hearts">
+      <button class="heart" data-text="Ти просто неймовірна &#10024;">&#10084;&#65039;</button>
+      <button class="heart" data-text="У тебе прекрасна посмішка, посміхайся завжди, будь ласка &#128578;">&#10084;&#65039;</button>
+      <button class="heart" data-text="Так сумую за тобою, коли тебе немає поруч &#129402;">&#10084;&#65039;</button>
+    </div>
+    <p id="heartText" class="big"></p>
+    <button id="to4" disabled>Next &#8594;</button>
+  </section>
+
+  <section class="screen" id="s4" data-step="4">
+    <h1>A little bit of us &#128248;</h1>
+    <div class="gallery">
+      
+      <button class="spoiler photoSpoiler" type="button" aria-label="Reveal photo 2">
+        <img class="ph" src="images/photo3.jpg" alt="Us photo 2" />
+        <span class="spoilerLabel">Tap &#10024;</span>
+      </button>
+      <button class="spoiler photoSpoiler" type="button" aria-label="Reveal photo 1">
+        <img class="ph" src="images/photo1.jpg" alt="Us photo 1" />
+        <span class="spoilerLabel">Tap &#10024;</span>
+      </button>
+      <button class="spoiler photoSpoiler" type="button" aria-label="Reveal photo 3">
+        <img class="ph" src="images/photo2.jpg" alt="Us photo 3" />
+        <span class="spoilerLabel">Tap &#10024;</span>
+      </button>
+    </div>
+    <button id="to5" disabled>Next &#8594;</button>
+  </section>
+
+  <section class="screen" id="s5" data-step="5">
+    <h1>And a special one...</h1>
+    <div class="specialGallery">
+      <button class="spoiler" id="specialSpoiler" type="button" aria-label="Reveal special photo">
+        <img class="ph" src="images/special2.jpg" alt="Special photo" />
+        <span class="spoilerLabel">Tap to reveal &#128140;</span>
+      </button>
+    </div>
+    <button id="to6">Next &#8594;</button>
+  </section>
+
+  <section class="screen" id="s6" data-step="6">
+    <h1>Rate this</h1>
+  <p>Give this website a score out of 10. One flower = one point 🌸</p>
+
+
+  <div class="flowersBox">
+      <p class="flowersTitle">Draw Flowers</p>
+      <canvas id="flowersCanvas"></canvas>
+      <p class="flowersHint">Tap / click to add flowers</p>
+      <button id="clearFlowers" type="button">Clean</button>
+    </div>
+    <button id="to7">Final step &#8594;</button>
+  </section>
+  
+  
+  
+  <section class="screen" id="s7" data-step="7">
+    <h1>Finallyyyy &#10084;&#65039;</h1>
+    <p class="big">You are my Valentine. Officially &#128522;</p>
+
+    <div class="envelopeWrap" id="finalCard">
+      <button id="openCard" class="openCard" type="button">Open envelope &#128140;</button>
+      <div class="envelopeBody">
+        <div class="envelopeBack"></div>
+        <div class="letterCard cardInner">
+          <p
+            id="finalTyped"
+            data-text="Дякую тобі велике за все, що вже було, та за все, що тільки буде! Ти неймовірна дівчина, більше слів скажу тобі в житті, але хочу, щоб і тут щось залишилось! Дуже тебе люблю! &#10084;&#65039;"
+          ></p>
+        </div>
+        <div class="envelopeFlap"></div>
+        <div class="envelopeFront"></div>
+      </div>
+    </div>
+
+    <div class="replayBox">
+      <p class="replayText">Хочеш глянути ще раз? Клікай &#10024;</p>
+      <button id="restartQuest" type="button">На початок &#8634;</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
