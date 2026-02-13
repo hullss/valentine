@@ -322,7 +322,7 @@ function moveNo() {
 
 let tries = 0;
 function getNoHint(attempt) {
-  if (attempt < 4) return "Нууу ні!! 😭😭";
+  if (attempt < 4) return "Нууу ні!! 😭";
   if (attempt < 8) return "Нінініні!!! Сьогодні це не прокатить 😝";
   return "Фая, не вірю, що ти досі нажимаєш ні🙄🙄";
 }
@@ -355,7 +355,7 @@ document.getElementById("to3").addEventListener("click", () => {
   const hint2 = document.getElementById("hint2");
 
   if (!q1 || !q2 || !q3 || !q4) {
-    hint2.textContent = "РўР° РЅСѓ, РјРµРЅС– Р¶ С†С–РєР°РІС– С‚РІРѕС— РІС–РґРѕРІС–РґС– :)";
+    hint2.textContent = "Мені цікаво почути всі твої відповіді 🥰";
     return;
   }
   hint2.textContent = "";
