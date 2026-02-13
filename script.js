@@ -1,4 +1,4 @@
-const screens = [...document.querySelectorAll(".screen")];
+﻿const screens = [...document.querySelectorAll(".screen")];
 const totalSteps = screens.length;
 const progressBar = document.getElementById("progressBar");
 const progressText = document.getElementById("progressText");
@@ -321,10 +321,15 @@ function moveNo() {
 }
 
 let tries = 0;
+function getNoHint(attempt) {
+  if (attempt < 4) return "Нууу ні!!";
+  if (attempt < 8) return "Ну що ж… сьогодні це не прокатить 😄";
+  return "Фая, не вірю, що ти досі нажимаєш ні🙄🙄";
+}
+
 no1.addEventListener("mouseenter", () => {
   tries++;
- hint1.textContent = tries < 4 ? "Нууу ні!!" : "Ну що ж… сьогодні це не прокатить 😄";
-
+  hint1.textContent = getNoHint(tries);
   moveNo();
 });
 
@@ -333,7 +338,7 @@ no1.addEventListener(
   (e) => {
     e.preventDefault();
     tries++;
-    hint1.textContent = tries < 4 ? "Нууу ні!!" : "Ну що ж… сьогодні це не прокатить 😄";
+    hint1.textContent = getNoHint(tries);
     moveNo();
   },
   { passive: false }
@@ -350,7 +355,7 @@ document.getElementById("to3").addEventListener("click", () => {
   const hint2 = document.getElementById("hint2");
 
   if (!q1 || !q2 || !q3 || !q4) {
-    hint2.textContent = "Та ну, мені ж цікаві твої відовіді :)";
+    hint2.textContent = "РўР° РЅСѓ, РјРµРЅС– Р¶ С†С–РєР°РІС– С‚РІРѕС— РІС–РґРѕРІС–РґС– :)";
     return;
   }
   hint2.textContent = "";
