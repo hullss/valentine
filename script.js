@@ -333,7 +333,7 @@ no1.addEventListener(
   (e) => {
     e.preventDefault();
     tries++;
-    hint1.textContent = "Not so fast :)";
+    hint1.textContent = tries < 4 ? "Нууу ні!!" : "Ну що ж… сьогодні це не прокатить 😄";
     moveNo();
   },
   { passive: false }
